@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+ int A[1001][1001];
+void spiral(int i,int j, int n,int m){
+
+    if((n<=0)||(m<=0))
+    return;
+    
+    int a;
+    for(a=j;a<=j+m-1;a++){
+    cout<<A[i][a]<<" ";
+        
+    }
+    for(a=i+1;a<=i+n-1;a++){
+        cout<<A[a][i+m-1]<<" ";
+    }
+    for(a=j+m-2;a>=j;a--){
+        cout<<A[i+n-1][a]<<" ";
+    }
+    for(a=i+n-2;a>=i+1;a--){
+        cout<<A[a][j]<<" ";
+        
+    }
+    
+    spiral(i+1,j+1,n-2,m-2);
+}
+int main()
+{
+   
+    int i;
+    int n,m;
+    cin>>n>>m;
+    for(i=1;i<=n;i++)
+    for(int j=1;j<=m;j++)
+    cin>>A[i][j];
+    
+    
+    spiral(1,1,n,m);
+    
+}
